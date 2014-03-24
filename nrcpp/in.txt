@@ -1,0 +1,21 @@
+
+class A {  
+
+} ;
+struct A1 {  };
+struct B : A, A1 {
+	void f(int ) ;
+} ;
+
+struct C  { 
+	C();C(int);
+private:
+	int a;
+};
+
+
+int a, b , a;
+void B::f(  int )
+{
+	C(0.).a = 0;
+}

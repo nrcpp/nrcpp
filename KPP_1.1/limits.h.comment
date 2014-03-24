@@ -1,0 +1,25 @@
+
+
+
+
+#define MAX_MACRO_DEEP  255
+
+
+
+#define MAX_IF_DEEP		80
+
+
+
+#define MAX_CHAR_VALUE	255
+
+
+
+#define MAX_WCHAR_T_VALUE	32767
+
+
+
+#define MAX_PARSER_DEEP		256 * 13			
+
+
+
+#define MAX_INCLUDE_DEEP	256

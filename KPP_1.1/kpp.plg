@@ -1,0 +1,62 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: kpp - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\0547~1\LOCALS~1\Temp\RSPF2.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/kpp.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\cnst-expr.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\comment.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\cpplex.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\directive.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\error.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\kpp.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\macro.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\preproc.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\read.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\slash.cpp"
+"C:\Documents and Settings\Альберт Гарикович\Мои документы\Проекты\KPP_1.1\trigraph.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\0547~1\LOCALS~1\Temp\RSPF2.tmp" 
+Creating temporary file "C:\DOCUME~1\0547~1\LOCALS~1\Temp\RSPF3.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/kpp.pdb" /machine:I386 /out:"Release/kpp.exe" 
+".\Release\cnst-expr.obj"
+".\Release\comment.obj"
+".\Release\cpplex.obj"
+".\Release\directive.obj"
+".\Release\error.obj"
+".\Release\kpp.obj"
+".\Release\macro.obj"
+".\Release\preproc.obj"
+".\Release\read.obj"
+".\Release\slash.obj"
+".\Release\trigraph.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\0547~1\LOCALS~1\Temp\RSPF3.tmp"
+<h3>Output Window</h3>
+Compiling...
+cnst-expr.cpp
+comment.cpp
+cpplex.cpp
+directive.cpp
+error.cpp
+kpp.cpp
+macro.cpp
+preproc.cpp
+read.cpp
+slash.cpp
+trigraph.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+kpp.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

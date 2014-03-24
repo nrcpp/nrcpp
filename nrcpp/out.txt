@@ -1,0 +1,28 @@
+struct __A
+{
+	int _;
+};
+
+struct __A1
+{
+	int _;
+};
+
+struct __B
+{
+	struct __A __Aso;
+	struct __A1 __A1so;
+
+};
+
+void __B_f(struct __B *this, int);
+struct __C
+{
+	int a;
+
+};
+
+struct __C * *__C_constructor(struct __C *this);
+struct __C * *__C_constructor2(struct __C *this, int);
+int __a;
+int __b;
