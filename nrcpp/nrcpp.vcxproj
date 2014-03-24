@@ -118,7 +118,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OutputFile>.\Debug\nrcpp.exe</OutputFile>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;nrc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -131,6 +131,7 @@
     <ClCompile Include="ExpressionChecker.cpp" />
     <ClCompile Include="ExpressionMaker.cpp" />
     <ClCompile Include="LexicalAnalyzer.cpp" />
+    <ClCompile Include="LIB\NRC.CPP" />
     <ClCompile Include="Maker.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MemberMaker.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Coordinator.h" />
     <ClInclude Include="ExpressionMaker.h" />
     <ClInclude Include="LexicalAnalyzer.h" />
+    <ClInclude Include="LIB\NRC.H" />
     <ClInclude Include="Maker.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="MemberMaker.h" />

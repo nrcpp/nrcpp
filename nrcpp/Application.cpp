@@ -20,6 +20,7 @@ using namespace NRC;
 Application theApp;
 
 
+
 // в параметре конструктора задается имя модуля
 TranslationUnit::TranslationUnit( PCSTR fnam ) 
 {

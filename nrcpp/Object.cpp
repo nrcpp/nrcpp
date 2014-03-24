@@ -218,8 +218,8 @@ void TypyziedEntity::PrintPostfix( string &buf, int &ix ) const
 		if( dtc == DerivedType::DT_FUNCTION_PROTOTYPE )
 		{
 			const FunctionPrototype &fp =  static_cast<const FunctionPrototype &>(dt);
-			buf += '(';
-			for( int i = 0;	i<fp.GetParametrList().GetFunctionParametrCount(); i++ )
+			buf += '('; int i;
+			for( i = 0;	i<fp.GetParametrList().GetFunctionParametrCount(); i++ )
 			{
 				buf += fp.GetParametrList().GetFunctionParametr(i)->
 					GetTypyziedEntityName(false).c_str();

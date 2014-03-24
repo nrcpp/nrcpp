@@ -55,11 +55,9 @@ namespace NRC
 
 		// автоматическое приведение к типу объекта
 		operator T&() { return val; }
-
-		// единственный метод класса - возвращает имя самого класса
-		virtual CharString Name() {
-			return CharString("NRC::TypeToSObject<T>");
-		}
+		
+		virtual CharString Name();
+		
 	};
 
 	
@@ -76,7 +74,7 @@ namespace NRC
 		return (T&)*(TypeToSObject<T> *)p;
 	}
 
-
+	
 	// класс символьных строк, расширяет класс строк из стандартной библиотеки
 	class CharString : public SObject, public string
 	{
@@ -167,6 +165,11 @@ namespace NRC
 		// преобразовать вещественное число в строку и заменить
 		CharString &operator=( double f );
 	};
+
+	template <class T>
+	virtual CharString TypeToSObject<T>::Name() {
+		return CharString("NRC::TypeToSObject<T>");
+	}
 
 
 	// список строк

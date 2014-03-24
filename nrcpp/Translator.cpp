@@ -437,17 +437,17 @@ void SMFGenegator::Generate()
 	if( pClass.GetConstructorList().empty() )
 	{
 		// проверяем, можно ли сгенерировать к-ор по умолчанию для нашего класса
-		if( CanGenerate(dependClsManagers, SMFManager::GetDefaultConstructor) && !explicitInit )
+		if( CanGenerate(dependClsManagers, &SMFManager::GetDefaultConstructor) && !explicitInit )
 			pClass.InsertSymbol( MakeDefCtor( 
-				GetDependInfo(dependClsManagers, SMFManager::GetDefaultConstructor).trivial) );
+				GetDependInfo(dependClsManagers, &SMFManager::GetDefaultConstructor).trivial) );
 	}
 
 	// если копирующий конструктор не сгенерирован, генерируем
 	if( smfManager.GetCopyConstructor().first == NULL )
 	{
-		if( CanGenerate(dependClsManagers, SMFManager::GetCopyConstructor) && !explicitInit )
+		if( CanGenerate(dependClsManagers, &SMFManager::GetCopyConstructor) && !explicitInit )
 		{
-			DependInfo di = GetDependInfo(dependClsManagers, SMFManager::GetCopyConstructor);
+			DependInfo di = GetDependInfo(dependClsManagers, &SMFManager::GetCopyConstructor);
 			pClass.InsertSymbol( MakeCopyCtor(di.trivial, di.paramIsConst) );
 		}
 	}
@@ -455,10 +455,10 @@ void SMFGenegator::Generate()
 	// если необх. сгенерировать деструктор
 	if( smfManager.GetDestructor().first == NULL )
 	{
-		if( CanGenerate(dependClsManagers, SMFManager::GetDestructor) )
+		if( CanGenerate(dependClsManagers, &SMFManager::GetDestructor) )
 		{
-			DependInfo di = GetDependInfo(dependClsManagers, SMFManager::GetDestructor);
-			bool isVirtual = IsDeclareVirtual(dependClsManagers, SMFManager::GetDestructor);
+			DependInfo di = GetDependInfo(dependClsManagers, &SMFManager::GetDestructor);
+			bool isVirtual = IsDeclareVirtual(dependClsManagers, &SMFManager::GetDestructor);
 			pClass.InsertSymbol( MakeDtor(di.trivial, isVirtual) );
 		}
 	}
@@ -469,10 +469,10 @@ void SMFGenegator::Generate()
 		// помимо стандартных проверок, также проверяем, чтобы в классе
 		// не было ссылок и константных объектов. В этом случае оператор
 		// копирования не генерируется
-		if( CanGenerate(dependClsManagers, SMFManager::GetCopyOperator) && !explicitInit )
+		if( CanGenerate(dependClsManagers, &SMFManager::GetCopyOperator) && !explicitInit )
 		{						
-			DependInfo di = GetDependInfo(dependClsManagers, SMFManager::GetCopyOperator);			
-			bool isVirtual = IsDeclareVirtual(dependClsManagers, SMFManager::GetCopyOperator);
+			DependInfo di = GetDependInfo(dependClsManagers, &SMFManager::GetCopyOperator);			
+			bool isVirtual = IsDeclareVirtual(dependClsManagers, &SMFManager::GetCopyOperator);
 			pClass.InsertSymbol( MakeCopyOperator( (di.trivial ?
 				Method::DT_TRIVIAL : Method::DT_IMPLICIT), di.paramIsConst, isVirtual) );
 		}
@@ -624,6 +624,7 @@ void CTypePrinter::PrintPointer( string &buf, int &ix, bool &namePrint )
 // печатать постфиксные производные типы и сохранять в буфер
 void CTypePrinter::PrintPostfix( string &buf, int &ix )
 {
+	int i;
 	for( ; ix < type.GetDerivedTypeList().GetDerivedTypeCount(); ix++)
 	{
 		const DerivedType &dt = *type.GetDerivedTypeList().GetDerivedType(ix);
@@ -644,7 +645,7 @@ void CTypePrinter::PrintPostfix( string &buf, int &ix )
 					buf += ", ";
 			}
 
-			for( int i = 0;	i<fp.GetParametrList().GetFunctionParametrCount(); i++ )
+			for( i = 0;	i<fp.GetParametrList().GetFunctionParametrCount(); i++ )
 			{
 				const Parametr &prm = *fp.GetParametrList().GetFunctionParametr(i);
 

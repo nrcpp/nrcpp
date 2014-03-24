@@ -1163,12 +1163,12 @@ void OperatorCaster::ClassifyCast()
 	int (OperatorCaster::*cos)( const ClassCastOverloadOperator &ccoo );
 	switch( category ) 
 	{
-	case ACC_NONE:			cos = COSCast;		break;
-	case ACC_TO_ARITHMETIC: cos = COSArith;		break;
-	case ACC_TO_INTEGER:	cos = COSIntegral;	break;
-	case ACC_TO_POINTER:	cos = COSPointer;	break;
-	case ACC_TO_SCALAR:		cos = COSScalar;    break;
-	case ACC_TO_ARITHMETIC_OR_POINTER: cos = COSArithmeticOrPointer; break;
+	case ACC_NONE:			cos = &OperatorCaster::COSCast;		break;
+	case ACC_TO_ARITHMETIC: cos = &OperatorCaster::COSArith;		break;
+	case ACC_TO_INTEGER:	cos = &OperatorCaster::COSIntegral;	break;
+	case ACC_TO_POINTER:	cos = &OperatorCaster::COSPointer;	break;
+	case ACC_TO_SCALAR:		cos = &OperatorCaster::COSScalar;    break;
+	case ACC_TO_ARITHMETIC_OR_POINTER: cos = &OperatorCaster::COSArithmeticOrPointer; break;
 	default: INTERNAL( "'OperatorCaster::ClassifyCast' - неизвестная категория");
 	}
 

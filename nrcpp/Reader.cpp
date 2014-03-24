@@ -433,7 +433,8 @@ void DeclaratorReader::ReadDeclaratorTailPart()
 	Lexem lxm = lastLxm;
 
 	// считываем постфиксные производные типы
-	for( bool in = false; ;in++ )
+	bool in;
+	for( in = false; ;in++ )
 	{	
 		// требуетс€ считать прототип функции
 		if( lxm == '(' )
@@ -1237,7 +1238,7 @@ void TypeExpressionReader::Read( bool fnParam, bool readTypeDecl )
 			(llc == KWCLASS || llc == KWSTRUCT || llc == KWUNION || llc == KWENUM) )
 		{
 			// базовый тип, который возможно был считан
-			BaseType *rbt = NULL;
+			const BaseType *rbt = NULL;
 
 			// возвращает true, если дальнейшие считывани€ деклараций не нужны,
 			// т.к. идет объ€вление типа заканчивающеес€ ';'

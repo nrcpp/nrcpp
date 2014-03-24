@@ -105,7 +105,7 @@ void NRC::CharString::DeleteInSet( const char *set )
 	out.reserve(length()+1);
 	for( int i = 0; i<length(); i++ )
 	{
-		char *p;
+		const char *p;
 		if( (p = strchr(set, at(i))) == NULL )
 			out += at(i);			
 	}
@@ -133,7 +133,7 @@ void NRC::CharString::ChangeInSet( const char *inset, const char *outset, char d
 
 	for( int i = 0; i<length(); i++ )
 	{
-		char *p;
+		const char *p;
 		if( (p = strchr(inset, at(i))) != NULL )
 			this->operator[](i) = outset[p-inset];
 	}
@@ -148,7 +148,7 @@ void NRC::CharString::KeepInSet( const char *set )
 	out.reserve(length()+1);
 	for( int i = 0; i<length(); i++ )
 	{
-		char *p;
+		const char *p;
 		if( (p = strchr(set, at(i))) != NULL )
 			out += at(i);
 	}

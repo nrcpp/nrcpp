@@ -1430,6 +1430,7 @@ private:
 	unsigned int orderNum;
 
 public:
+	
 	// задаем в конструкторе необх. информацию.
 	ObjectInitElement( const Identifier &id_, const PExpressionList &el, IV iv_, unsigned on )
 		: id(id_), expList(el), iv(iv_), orderNum(on) {
@@ -1491,6 +1492,10 @@ public:
 	// оператор сравнения для поиска идентификатора
 	bool operator!=( const ObjectInitElement &oie ) const {
 		return &id != &oie.GetIdentifier();
+	}
+
+	void operator=(const ObjectInitElement &oie ) const {
+		return *this = oie;
 	}
 };
 

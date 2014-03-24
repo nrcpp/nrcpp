@@ -705,7 +705,7 @@ ExpressionMakerUtils::InitAnswer ExpressionMakerUtils::CorrectObjectInitializati
 
 	// сначала проверим, если тип классовый, значит требуетс€ вызов к-ра.
 	// ≈сли имеем массив классовых объектов, значит требуетс€ к-ор по умолчанию
-	bool clsType = obj.GetBaseType().IsClassType(), array = false;
+	bool clsType = obj.GetBaseType().IsClassType(), array = false;int i;
 	for( int i = 0; i<obj.GetDerivedTypeList().GetDerivedTypeCount(); i++ )
 	{
 		if( obj.GetDerivedTypeList().GetDerivedType(i)->GetDerivedTypeCode() !=
@@ -1178,6 +1178,7 @@ int SizeofEvaluator::EvalClassSize( const ClassType &cls ) const
 
 	// вычисл€ем размер базовых классов
 	const BaseClassList &bcl = cls.GetBaseClassList();
+	int i;
 	for( i = 0; i<bcl.GetBaseClassCount(); i++ )
 	{
 		const BaseClassCharacteristic &bcc = *bcl.GetBaseClassCharacteristic(i);
@@ -3953,7 +3954,8 @@ POperand NewTernaryMaker::Make()
 {
 	// провер€ем, если хоть один из элементов ошибочен, вернуть
 	// errorOperand
-	for( int i = 0; i<placementList->size(); i++ )
+	int i;
+	for( i = 0; i<placementList->size(); i++ )
 		if( placementList->at(i)->IsErrorOperand() )
 			return ErrorOperand::GetInstance();
 

@@ -68,6 +68,9 @@
     <ClCompile Include="Translator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\NRC.CPP">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -126,6 +129,9 @@
     </ClInclude>
     <ClInclude Include="PackCode.h">
       <Filter>Predefined Constants Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\NRC.H">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
